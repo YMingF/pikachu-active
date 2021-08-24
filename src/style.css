@@ -26,6 +26,26 @@ body {
   margin-left: -10px;
   z-index: 10;
 }
+/*实现鼠标悬停时鼻子动的效果*/
+@keyframes wave {
+  /*设置动画名字*/
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(-5deg);
+  }
+  66% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.nose:hover {
+  transform-origin: center bottom;
+  animation: wave 300ms infinite linear;
+}
 .yuan {
   position: absolute;
   width: 20px;
@@ -82,7 +102,7 @@ body {
   /**/
 }
 .mouth .up .lip {
-  border: 5px solid black;
+  border: 3px solid black;
   width: 100px;
   height: 30px;
   border-top: none;
@@ -149,4 +169,32 @@ body {
   margin-left: -100px;
   background: #ff5b5d;
   border-radius: 100px;
+}
+
+.face {
+  position: absolute;
+  border: 3px solid black;
+  left: 50%;
+  width: 88px;
+  height: 88px;
+  top: 200px;
+  margin-left: -44px;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: #fe1800;
+}
+.face > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.face.left {
+  transform: translateX(-180px);
+}
+.face.left > img {
+  transform-origin: left top;
+  transform: rotateY(180deg);
+}
+.face.right {
+  transform: translateX(180px);
 }
