@@ -1,16 +1,22 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 *::after,
 *::before {
   box-sizing: border-box;
 }
+body {
+  background: #ffdb00;
+  min-height: 100vh;
+}
 .skin {
   position: relative;
 }
 .nose {
-  border: 10px solid red;
-  border-color: red transparent transparent;
+  border: 10px solid black;
+  border-color: black transparent transparent;
   border-bottom: none;
   width: 0px;
   height: 0px;
@@ -18,6 +24,7 @@
   left: 50%;
   top: 145px;
   margin-left: -10px;
+  z-index: 1;
 }
 .yuan {
   position: absolute;
@@ -26,9 +33,8 @@
   top: -15px;
   left: -10px;
   border-radius: 10px 10px 0 0;
-  background-color: red;
+  background-color: black;
 }
-
 .eye {
   border: 2px solid #000;
   width: 64px;
@@ -44,18 +50,81 @@
   content: " ";
   display: block;
   border: 3px solid #000;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background: #fff;
   border-radius: 50%;
   position: relative;
-  left: 8px;
-  top: 4px;
+  left: 4px;
+  top: 2px;
 }
-
 .eye.left {
   transform: translateX(-100px);
 }
 .eye.right {
   transform: translateX(100px);
+}
+
+.mouth {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 170px;
+  margin-left: -100px;
+}
+/*写嘴唇*/
+.mouth .up {
+  position: relative;
+  top: -20px;
+  /**/
+}
+
+.mouth .up .lip.left {
+  border: 5px solid black;
+  width: 100px;
+  height: 30px;
+  border-radius: 0 0 0 50px;
+  border-top: none;
+  position: relative;
+  transform: rotate(-15deg) translateX(-53px); /*倾斜胡须*/
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+}
+
+.mouth .up .lip.right {
+  border: 5px solid black;
+  width: 100px;
+  height: 30px;
+  border-radius: 0 0 50px 0;
+  border-top: none;
+  position: relative;
+  transform: rotate(15deg) translateX(53px); /*倾斜胡须*/
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+}
+
+/*定义个伪元素遮掉右边框那根消除不了的线*/
+.mouth .up .lip.left::before {
+  content: " ";
+  display: block;
+  width: 7px;
+  height: 30px;
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+  background-color: #ffdb00;
+}
+
+.mouth .up .lip.right::before {
+  content: " ";
+  display: block;
+  width: 7px;
+  height: 30px;
+  position: absolute;
+  left: -6px;
+  bottom: 0;
+  background-color: #ffdb00;
 }
