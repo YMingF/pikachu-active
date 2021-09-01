@@ -7,11 +7,6 @@ const player={
     n:0,
     time:100 ,//设置动画播放速度
     id:undefined,
-
-    init:()=>{
-        player.bindEvents()
-        player.play()
-    },
     events:{
         "#btnPause":"pause",
         //重新设置一个新闹钟
@@ -20,6 +15,11 @@ const player={
         "#btnNormal":"normal",
         "#btnFast":"fast"
     },
+    init:()=>{
+        player.bindEvents()
+        player.play()
+    },
+   
 
     bindEvents:()=>{
         
@@ -43,6 +43,7 @@ const player={
         demo.scroll(0,9999)
     },
     play:()=>{
+        window.clearInterval(player.id)
         player.id=setInterval(player.run, player.time);
     },
     pause:()=>{
