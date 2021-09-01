@@ -1,20 +1,19 @@
 
-let string=`
-* {
+const string=`
+.skin * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  *::after,
-  *::before {
+  .skin *::after,
+  .skin *::before {
     box-sizing: border-box;
   }
-  body {
-    background: #ffdb00;
-    min-height: 100vh;
-  }
+  
   .skin {
     position: relative;
+    background: #ffdb00;
+    min-height: 50vh;
   }
   .nose {
     border: 10px solid black;
@@ -201,17 +200,5 @@ let string=`
     transform: translateX(180px);
   }
   `
-let n=0
-let demo=document.querySelector('#demo')
-const Id=setInterval(() => {
 
-    n+=1
-    if(n>string.length){
-        window.clearInterval(Id)//停止计时器的执行
-        return
-    }
-    demo.innerText=string.substring(0,n)//展示Css的文字
-    demo2.innerHTML=string.substring(0,n)//去实现样式的更新
-    demo.scroll(0,9999)
-    console.log(n)
-}, 0);
+export default string; //导出这个变量string
