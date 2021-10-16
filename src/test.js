@@ -13,7 +13,8 @@ const player={
         "#btnPlay":"play",
         "#btnSlow":"slow",
         "#btnNormal":"normal",
-        "#btnFast":"fast"
+        "#btnFast":"fast",
+        '#restart':'restart'
     },
     init:()=>{
         player.bindEvents()
@@ -42,13 +43,12 @@ const player={
         demo2.innerHTML=string.substring(0,player.n)//去实现样式的更新
         demo.scroll(0,9999)
     },
-    play:()=>{
-        window.clearInterval(player.id)
-        player.id=setInterval(player.run, player.time);
-    },
     pause:()=>{
-        console.log('暂停了 ')
         window.clearInterval(player.id)
+    },
+    play:()=>{
+        player.pause()
+        player.id=setInterval(player.run, player.time);
     },
     slow:()=>{
         player.pause()
@@ -62,6 +62,11 @@ const player={
     },
     fast:()=>{
         player.pause()
+        player.time=0
+        player.play()
+    },
+    restart:()=>{
+        player.n=0
         player.time=0
         player.play()
     }
