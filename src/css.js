@@ -23,7 +23,7 @@ const string=`
     height: 0px;
     position: relative;
     left: 50%;
-    top: 145px;
+    top: 125px;
     margin-left: -10px;
     z-index: 10;
   }
@@ -62,7 +62,7 @@ const string=`
     height: 64px;
     position: absolute;
     left: 50%;
-    top: 100px;
+    top: 80px;
     margin-left: -32px;
     background: #2d2d2e;
     border-radius: 50%;
@@ -91,7 +91,7 @@ const string=`
     height: 200px;
     position: absolute;
     left: 50%;
-    top: 170px;
+    top: 140px;
     margin-left: -100px;
   }
   /*写嘴唇*/
@@ -171,7 +171,6 @@ const string=`
     background: #ff5b5d;
     border-radius: 100px;
   }
-  
   .face {
     position: absolute;
     border: 3px solid black;
@@ -184,21 +183,26 @@ const string=`
     border-radius: 50%;
     background-color: #fe1800;
   }
-  .face > img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+   @media (max-width:500px){
+  .face.left {
+    transform: translateX(-140px);
   }
+  .face.right {
+    transform: translateX(140px);
+  }
+  }
+  @media (min-width:500px){
   .face.left {
     transform: translateX(-180px);
   }
-  .face.left > img {
-    transform-origin: left top;
-    transform: rotateY(180deg);
-  }
+  
   .face.right {
     transform: translateX(180px);
   }
+  }
+  
+  
+ 
   `
 
 export default string; //导出这个变量string
