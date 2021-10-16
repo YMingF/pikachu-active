@@ -5,7 +5,7 @@ import string from './css.js'
 
 const player={
     n:0,
-    time:100 ,//设置动画播放速度
+    time:0 ,//设置动画播放速度
     id:undefined,
     events:{
         "#btnPause":"pause",
